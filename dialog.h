@@ -5,6 +5,7 @@
 #include <QPainter>
 #include <QPointF>
 #include <qmath.h>
+#include <QString>
 
 namespace Ui {
 class Dialog;
@@ -23,7 +24,8 @@ private:
 
 protected:
     void paintEvent(QPaintEvent *);
-    void drawTriangle(QPointF p1, int orientation, float size);
+    void drawTriangle(QPointF p1, qreal size);
+    void sierpinski(int level, QPointF p1, qreal size);
 };
 
 #endif // DIALOG_H
