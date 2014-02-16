@@ -2,16 +2,21 @@ sierpinski
 ==========
 
 clone the repo using
-  git clone http://github.com/anishp/sierpinski
+
+    git clone http://github.com/anishp/sierpinski
 
 cd into the directory
-  cd sierpinski
+
+    cd sierpinski
 
 use qmake to generate makefile
-  qmake sierpinski.pro
+
+    qmake sierpinski.pro
 
 compile using make
-  make
+
+    make
 
 run the executable
-  ./sierpinski
+
+    ./sierpinski
