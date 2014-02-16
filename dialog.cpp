@@ -6,6 +6,9 @@ Dialog::Dialog(QWidget *parent) :
     ui(new Ui::Dialog)
 {
     ui->setupUi(this);
+
+    connect(this->ui->horizontalSlider, SIGNAL(valueChanged(int)), this, SLOT(set_label_text()));
+
 }
 
 Dialog::~Dialog()
@@ -15,9 +18,7 @@ Dialog::~Dialog()
 
 void Dialog::paintEvent(QPaintEvent *)
 {
-    QPointF p1 = QPointF(320.0f, 50.0f);
-    qreal size = 400.0f;
-    sierpinski(10, p1, size);
+    update_sierp();
 }
 
 void Dialog::drawTriangle(QPointF p1, qreal size)
@@ -59,4 +60,19 @@ void Dialog::sierpinski(int level, QPointF p1, qreal size)
         //drawTriangle(p3, UP, size/2.0f);
         sierpinski(level-1, p3, size/2);
     }
+}
+
+void Dialog::set_label_text()
+{
+    this->ui->label->setText(QString::number(this->ui->horizontalSlider->value()));
+    update();
+
+}
+
+void Dialog::update_sierp()
+{
+    int level = this->ui->horizontalSlider->value();
+    QPointF p1 = QPointF(320.0f, 50.0f);
+    qreal size = 400.0f;
+    sierpinski(level, p1, size);
 }
